@@ -1,0 +1,13 @@
+.git-hub-search #results md-item h3 {
+  padding: 10px;
+  background: #ccc;
+  border-bottom: 1px solid black;
+}
+.git-hub-search #results md-item.open-cards md-card {
+  display: block;
+}
+.git-hub-search #results md-item md-card {
+  display: none;
+  margin-left: 10px;
+  padding-bottom: 10px;
+}

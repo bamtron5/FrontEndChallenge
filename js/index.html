@@ -3,27 +3,35 @@
 <head>
   <meta http-equiv="Content-type" content="text/html; charset=utf-8">
   <title>Search</title>
+  <link rel="stylesheet" type="text/css" href="css/style.less.css">
 </head>
-<body ng-app="gitHubSearch" ng-controller="ghsController">
+<body ng-app="gitHubSearch" ng-controller="ghsController" class="git-hub-search">
+  <p>Git Repo Search</p>
   <input id="search" type="text" ng-model="search" ng-keyup="fetch()"/>
-  <div ng-repeat="ownerPerResult in ownersToFilter() | filter:filterOwners">
-      <b>{{ownerPerResult.owner}}</b>
-      <li ng-repeat="record in results | filter:{ owner : ownerPerResult.owner }:true">{{record.url}}</li>        
-  </div>
-
-  <!-- <div id="results" layout="column">
+  <div id="results">
     <section>
       <md-content>
         <md-list layout="column">
-          <md-item ng-repeat="item in results">
-            <h3>{{item.owner}}</h3>
+          <md-item ng-repeat="ownerPerResult in ownersToFilter() | filter:filterOwners">
+            <h3 ng-click="toggleCards()">{{ownerPerResult.owner}}</h3>
+            <md-card class="result-card" ng-repeat="record in results | filter:{ owner : ownerPerResult.owner }:true" class="repo-name">
+              <md-card-content>
+                  <p>Repo Name: <b><a href="{{record.url}}" target="_blank">{{record.name}}</a></b></p>
+                  <p ng-hide="record.description == null || record.description == ''">Description: {{record.description}}</p>
+                  <p ng-hide="record.homepage == null">Homepage: {{record.homepage}}</p>
+                  <p>Language: {{record.language}}</p>
+                  <p>Forks: {{record.forks}}</p>
+                  <p>Open Issues {{record.open_issues}}</p>
+              </md-card-content>
+            </md-card>
           </md-item>
         </md-list>
-      </md-content>
-    </section>
-  </div> -->
-  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+      </md-content> 
+    </section>    
+  </div>
 
+
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.3.10/angular.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.3.10/angular-resource.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.3.10/angular-aria.min.js"></script>
