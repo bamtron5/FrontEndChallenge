@@ -1,0 +1,78 @@
+*,
+*:after,
+*:before {
+  box-sizing: border-box;
+}
+*[class^="col-"] {
+  float: left;
+}
+.row.active .col-xs-1 {
+  background-color: white;
+  color: purple;
+}
+.row .col-xs-1 {
+  width: 8.3333%;
+  border: 1px solid gray;
+}
+@media (max-width: 767px) {
+  .row .col-xs-1 {
+    width: 100%;
+  }
+}
+@media (min-width: 768px) and (max-width: 991px) {
+  .row .col-xs-1 {
+    width: 33.3333%;
+  }
+}
+@media (min-width: 992px) {
+  .row .col-xs-1 {
+    width: 50%;
+    transition: background-color 0.5s ease;
+  }
+  .row .col-xs-1:hover {
+    cursor: pointer;
+    background-color: lightblue;
+    font-style: italic;
+  }
+}
+.row .col-xs-1 span {
+  display: block;
+  padding: 25px 0;
+  text-align: center;
+}
+.col-xs-1:nth-child(1) {
+  background-color: #8a0808;
+}
+.col-xs-1:nth-child(2) {
+  background-color: #fa5882;
+}
+.col-xs-1:nth-child(3) {
+  background-color: #688a08;
+}
+.col-xs-1:nth-child(4) {
+  background-color: #86b404;
+}
+.col-xs-1:nth-child(5) {
+  background-color: #9a2efe;
+}
+.col-xs-1:nth-child(6) {
+  background-color: #0b3b39;
+}
+.col-xs-1:nth-child(7) {
+  background-color: #3b170b;
+}
+.col-xs-1:nth-child(8) {
+  background-color: #868a08;
+}
+.col-xs-1:nth-child(9) {
+  background-color: #8a2908;
+}
+.col-xs-1:nth-child(10) {
+  background-color: #81daf5;
+}
+.col-xs-1:nth-child(11) {
+  background-color: #64fe2e;
+}
+.col-xs-1:nth-child(12) {
+  background-color: #848484;
+}

@@ -1,0 +1,87 @@
+//mixins
+.gridTransition(){
+	transition: background-color 0.5s ease;
+	//hover
+	&:hover{
+		cursor: pointer;
+		background-color: lightblue;
+		font-style: italic;
+	}
+}
+
+//palette
+@client-color-1: #8A0808;
+@client-color-2: #FA5882;
+@client-color-3: #688A08;
+@client-color-4: #86B404;
+@client-color-5: #9A2EFE;
+@client-color-6: #0B3B39;
+@client-color-7: #3B170B;
+@client-color-8: #868A08;
+@client-color-9: #8A2908;
+@client-color-10: #81DAF5;
+@client-color-11: #64FE2E;
+@client-color-12: #848484;
+
+//globals
+*, *:after, *:before{
+	box-sizing:border-box;
+}
+
+*[class^="col-"]{
+	float:left;
+}
+
+//grid
+.row{
+	&.active{
+		.col-xs-1{
+			background-color:white;
+			color:purple;
+		}
+	}
+
+	.col-xs-1{
+		width:8.3333%;
+		border:1px solid gray;
+
+		//mobile
+		@media (max-width: 767px) {
+		  width:100%;
+		}
+
+		//medium
+		@media (min-width: 768px) and (max-width: 991px) {
+		  width:33.3333%;
+		}
+
+		//large
+		@media (min-width: 992px){
+		  width:50%;
+
+		  .gridTransition();
+		}
+
+		span{
+			display:block;
+			padding:25px 0;
+			text-align: center;
+		}	
+	}
+}
+
+//different bg colors
+.col-xs-1{
+	&:nth-child(1){background-color:@client-color-1;}
+	&:nth-child(2){background-color:@client-color-2;}
+	&:nth-child(3){background-color:@client-color-3;}
+	&:nth-child(4){background-color:@client-color-4;}
+	&:nth-child(5){background-color:@client-color-5;}
+	&:nth-child(6){background-color:@client-color-6;}
+	&:nth-child(7){background-color:@client-color-7;}
+	&:nth-child(8){background-color:@client-color-8;}
+	&:nth-child(9){background-color:@client-color-9;}
+	&:nth-child(10){background-color:@client-color-10;}
+	&:nth-child(11){background-color:@client-color-11;}
+	&:nth-child(12){background-color:@client-color-12;}
+}
