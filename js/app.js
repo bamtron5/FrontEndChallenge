@@ -2,9 +2,15 @@ var app = angular.module("gitHubSearch", ['ngMaterial']);
 
 app.controller('ghsController', function($scope, $http){
 	$scope.fetch = function(){
-		$http.get('https://api.github.com/legacy/repos/search/' + $scope.search).success(function(data){
+		$http.get('http://api.github.com/legacy/repos/search/' + $scope.search).success(function(data){
 			$scope.results = data["repositories"];
-		});	
+		});
+	}
+
+	$scope.speak = function(scope){
+		var msg = new SpeechSynthesisUtterance(scope);
+		window.speechSynthesis.speak(msg)
+		
 	}
 
     var indexedOwners = [];
@@ -31,6 +37,7 @@ app.directive('mdItem', function() {
          
          $scope.toggleCards = function(){
            $($element).toggleClass('open-cards');
+           $scope.speak($scope.ownerPerResult.owner);
          }
        }
     };
