@@ -10,7 +10,7 @@
 <body ng-app="gitHubSearch" ng-controller="ghsController" class="git-hub-search">
   <div id="page-container">
     <div class="search">
-      <p>Git Repo Search</p>
+      <h1>Git Repo Search</h1>
       <label>
         <input id="search" type="text" ng-model="search" ng-keyup="fetch()"/>
       </label>
@@ -26,7 +26,7 @@
                   <md-card-content>
                       <h3>Repo Name: <b><a href="{{record.url}}" target="_blank">{{record.name}}</a></b></h3>
                       <p ng-hide="record.description == null || record.description == ''">Description: {{record.description}}</p>
-                      <p ng-hide="record.homepage == null || record.homepage == ''">Homepage: {{record.homepage}}</p>
+                      <p ng-hide="record.homepage == null || record.homepage == ''">Homepage: <a href="{{record.homepage}}" target="_blank">{{record.homepage}}</a></p>
                       <p>Language: {{record.language}}</p>
                       <p>Forks: {{record.forks}}</p>
                       <p>Open Issues: {{record.open_issues}}</p>
