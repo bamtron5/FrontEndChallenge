@@ -10,7 +10,6 @@ app.controller('ghsController', function($scope, $http){
 	$scope.speak = function(scope){
 		var msg = new SpeechSynthesisUtterance(scope);
 		window.speechSynthesis.speak(msg)
-		
 	}
 
     var indexedOwners = [];

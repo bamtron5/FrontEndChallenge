@@ -1,13 +1,35 @@
-.git-hub-search #results md-item h3 {
-  padding: 10px;
-  background: #ccc;
-  border-bottom: 1px solid black;
+.git-hub-search .search {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100px;
+  padding: 0 15px;
+  border-bottom: 1px solid #ccc;
+  width: 100%;
+  background-color: #efecca;
+  z-index: 2;
 }
-.git-hub-search #results md-item.open-cards md-card {
-  display: block;
+.git-hub-search #page-container {
+  max-width: 1170px;
+  margin: auto;
 }
-.git-hub-search #results md-item md-card {
-  display: none;
-  margin-left: 10px;
-  padding-bottom: 10px;
+.git-hub-search #results {
+  margin-top: 100px;
+  z-index: 1;
+  position: relative;
+  overflow: hidden;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -moz-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+.git-hub-search .md-subheader,
+.git-hub-search a {
+  color: #3f51b5;
+}
+.git-hub-search .md-sticky-clone[sticky-state=active] {
+  background: white;
+  z-index: 2;
 }

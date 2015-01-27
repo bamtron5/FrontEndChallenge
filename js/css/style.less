@@ -1,23 +1,45 @@
+//palette
+@client-color-1: rgb(63,81,181);
+@client-bgcolor-1: rgb(239,236,202);
+
 .git-hub-search{
+	.search{
+		position: fixed;
+		top:0;
+		left:0;
+		height:100px;
+		padding:0 15px;
+		border-bottom: 1px solid #ccc;
+		width:100%;
+		background-color:@client-bgcolor-1;
+		z-index: 2;
+	}
+
+	#page-container{
+		max-width:1170px;
+		margin:auto;
+	}
+
 	#results{
-		md-item{
-			h3{
-				padding:10px;
-				background:#ccc;
-				border-bottom:1px solid black;
-			}
+		margin-top:100px;
+		z-index: 1;
+		position: relative;
+		overflow: hidden;
+		display: -webkit-box;
+		display: -webkit-flex;
+		display: -moz-box;
+		display: -moz-flex;
+		display: -ms-flexbox;
+		display: flex;
+	}
 
-			&.open-cards{
-				md-card{
-					display:block;
-				}
-			}
+	.md-subheader, a{
+		color: @client-color-1;
+	}
 
-			md-card{
-				display:none;
-				margin-left:10px;
-				padding-bottom:10px;
-			}
-		}
+	.md-sticky-clone[sticky-state=active]{
+		background:white;
+		z-index: 2;
 	}
 }
+

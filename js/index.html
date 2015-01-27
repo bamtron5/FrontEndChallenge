@@ -4,32 +4,40 @@
   <meta http-equiv="Content-type" content="text/html; charset=utf-8">
   <title>Search</title>
   <link rel="stylesheet" type="text/css" href="css/style.less.css">
+  <link rel="stylesheet" href="//ajax.googleapis.com/ajax/libs/angular_material/0.7.0/angular-material.min.css">
+
 </head>
 <body ng-app="gitHubSearch" ng-controller="ghsController" class="git-hub-search">
-  <p>Git Repo Search</p>
-  <label>
-    <input id="search" type="text" ng-model="search" ng-keyup="fetch()"/>
-  </label>
-  <div id="results">
-    <section>
+  <div id="page-container">
+    <div class="search">
+      <p>Git Repo Search</p>
+      <label>
+        <input id="search" type="text" ng-model="search" ng-keyup="fetch()"/>
+      </label>
+    </div>
+    <div id="results">
       <md-content>
-        <md-list layout="column">
-          <md-item ng-repeat="ownerPerResult in ownersToFilter() | filter:filterOwners">
-            <h3 ng-click="toggleCards()">{{ownerPerResult.owner}}</h3>
-            <md-card class="result-card" ng-repeat="record in results | filter:{ owner : ownerPerResult.owner }:true" class="repo-name">
-              <md-card-content>
-                  <p>Repo Name: <b><a href="{{record.url}}" target="_blank">{{record.name}}</a></b></p>
-                  <p ng-hide="record.description == null || record.description == ''">Description: {{record.description}}</p>
-                  <p ng-hide="record.homepage == null">Homepage: {{record.homepage}}</p>
-                  <p>Language: {{record.language}}</p>
-                  <p>Forks: {{record.forks}}</p>
-                  <p>Open Issues: {{record.open_issues}}</p>
-              </md-card-content>
-            </md-card>
-          </md-item>
-        </md-list>
+        <section ng-repeat="ownerPerResult in ownersToFilter() | filter:filterOwners" ng-cloak>
+          <md-subheader>{{ownerPerResult.owner}}</md-subheader>
+          <md-list layout="column">
+            <md-item ng-repeat="record in results | filter:{ owner : ownerPerResult.owner }:true">
+              <md-item-content>
+                <md-card>
+                  <md-card-content>
+                      <h3>Repo Name: <b><a href="{{record.url}}" target="_blank">{{record.name}}</a></b></h3>
+                      <p ng-hide="record.description == null || record.description == ''">Description: {{record.description}}</p>
+                      <p ng-hide="record.homepage == null || record.homepage == ''">Homepage: {{record.homepage}}</p>
+                      <p>Language: {{record.language}}</p>
+                      <p>Forks: {{record.forks}}</p>
+                      <p>Open Issues: {{record.open_issues}}</p>
+                  </md-card-content>
+                </md-card>
+              </md-item-content>
+            </md-item>
+          </md-list>
+        </section> 
       </md-content> 
-    </section> 
+    </div>
   </div>
 
 
